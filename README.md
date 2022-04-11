@@ -1,4 +1,4 @@
-# tflint-config-generator
+# TFLint Config Generator
 
 Tools for generating an up-to-date `.tflint.hcl` configuration file for use with [`tflint`](https://github.com/terraform-linters/tflint).
 

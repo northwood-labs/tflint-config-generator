@@ -3,7 +3,7 @@
 */}}
 {{ define "plugin" }}
 
-plugin "aws" {
+plugin "azurerm" {
   enabled    = true
   deep_check = true
   version    = "{{ .tag }}"

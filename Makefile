@@ -97,6 +97,7 @@ clean-files:
 	@ $(ECHO) " "
 	@ $(ECHO) "=====> Cleaning files..."
 	rm -vf *.tmp
+	rm -vf .tflint.hcl *.tflint.hcl
 	rm -rf /tmp/tflint-ruleset-*
 
 .PHONY: clean-go

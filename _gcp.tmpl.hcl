@@ -3,7 +3,7 @@
 */}}
 {{ define "plugin" }}
 
-plugin "aws" {
+plugin "gcp" {
   enabled    = true
   deep_check = true
   version    = "{{ .tag }}"

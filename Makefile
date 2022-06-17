@@ -6,7 +6,7 @@ current_dir := $(dir $(mkfile_path))
 
 GO=$(shell which go)
 TFLINT_AWS_TAG=0.14.0
-TFLINT_GCP_TAG=0.16.1
+TFLINT_GCP_TAG=0.17.0
 TFLINT_AZURE_TAG=0.16.0
 
 GO=$(shell which go)

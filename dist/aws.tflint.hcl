@@ -5,7 +5,7 @@
 plugin "aws" {
   enabled    = true
   deep_check = true
-  version    = "0.14.0"
+  version    = "0.20.0"
   source     = "github.com/terraform-linters/tflint-ruleset-aws"
 }
 
@@ -1283,10 +1283,6 @@ rule "aws_cloudwatch_metric_alarm_invalid_comparison_operator" {
 }
 
 rule "aws_cloudwatch_metric_alarm_invalid_evaluate_low_sample_count_percentiles" {
-  enabled = true
-}
-
-rule "aws_cloudwatch_metric_alarm_invalid_extended_statistic" {
   enabled = true
 }
 

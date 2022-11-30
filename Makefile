@@ -5,9 +5,9 @@ current_dir := $(dir $(mkfile_path))
 # Global stuff.
 
 GO=$(shell which go)
-TFLINT_AWS_TAG=0.14.0
-TFLINT_GCP_TAG=0.17.0
-TFLINT_AZURE_TAG=0.16.0
+TFLINT_AWS_TAG=0.20.0
+TFLINT_GCP_TAG=0.21.0
+TFLINT_AZURE_TAG=0.19.0
 
 GO=$(shell which go)
 BREW_PREFIX=$(shell brew --prefix)

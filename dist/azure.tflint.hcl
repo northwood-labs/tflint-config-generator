@@ -5,7 +5,7 @@
 plugin "azurerm" {
   enabled    = true
   deep_check = true
-  version    = "0.16.0"
+  version    = "0.19.0"
   source     = "github.com/terraform-linters/tflint-ruleset-azurerm"
 }
 
@@ -614,10 +614,6 @@ rule "azurerm_key_vault_key_invalid_key_type" {
   enabled = true
 }
 
-rule "azurerm_kubernetes_cluster_default_node_pool_invalid_vm_size" {
-  enabled = true
-}
-
 rule "azurerm_kubernetes_cluster_invalid_name" {
   enabled = true
 }
@@ -627,10 +623,6 @@ rule "azurerm_kubernetes_cluster_node_pool_invalid_os_disk_size_gb" {
 }
 
 rule "azurerm_kubernetes_cluster_node_pool_invalid_os_type" {
-  enabled = true
-}
-
-rule "azurerm_kubernetes_cluster_node_pool_invalid_vm_size" {
   enabled = true
 }
 
@@ -698,10 +690,6 @@ rule "azurerm_managed_application_definition_invalid_lock_level" {
   enabled = true
 }
 
-rule "azurerm_managed_disk_invalid_create_option" {
-  enabled = true
-}
-
 rule "azurerm_managed_disk_invalid_os_type" {
   enabled = true
 }
@@ -746,10 +734,6 @@ rule "azurerm_mysql_firewall_rule_invalid_start_ip_address" {
   enabled = true
 }
 
-rule "azurerm_mysql_server_invalid_version" {
-  enabled = true
-}
-
 rule "azurerm_nat_gateway_invalid_sku_name" {
   enabled = true
 }
@@ -770,7 +754,15 @@ rule "azurerm_netapp_pool_invalid_service_level" {
   enabled = true
 }
 
+rule "azurerm_netapp_snapshot_invalid_pool_name" {
+  enabled = true
+}
+
 rule "azurerm_netapp_snapshot_invalid_resource_group_name" {
+  enabled = true
+}
+
+rule "azurerm_netapp_snapshot_invalid_volume_name" {
   enabled = true
 }
 
@@ -903,10 +895,6 @@ rule "azurerm_servicebus_topic_invalid_status" {
 }
 
 rule "azurerm_shared_image_invalid_os_type" {
-  enabled = true
-}
-
-rule "azurerm_snapshot_invalid_create_option" {
   enabled = true
 }
 

@@ -5,7 +5,7 @@
 plugin "aws" {
   enabled    = true
   deep_check = true
-  version    = "0.20.0"
+  version    = "0.27.0"
   source     = "github.com/terraform-linters/tflint-ruleset-aws"
 }
 
@@ -854,14 +854,6 @@ rule "aws_appsync_function_invalid_name" {
   enabled = true
 }
 
-rule "aws_appsync_function_invalid_request_mapping_template" {
-  enabled = true
-}
-
-rule "aws_appsync_function_invalid_response_mapping_template" {
-  enabled = true
-}
-
 rule "aws_appsync_graphql_api_invalid_authentication_type" {
   enabled = true
 }
@@ -871,14 +863,6 @@ rule "aws_appsync_resolver_invalid_data_source" {
 }
 
 rule "aws_appsync_resolver_invalid_field" {
-  enabled = true
-}
-
-rule "aws_appsync_resolver_invalid_request_template" {
-  enabled = true
-}
-
-rule "aws_appsync_resolver_invalid_response_template" {
   enabled = true
 }
 
@@ -959,10 +943,6 @@ rule "aws_budgets_budget_invalid_account_id" {
 }
 
 rule "aws_budgets_budget_invalid_budget_type" {
-  enabled = true
-}
-
-rule "aws_budgets_budget_invalid_name" {
   enabled = true
 }
 
@@ -1591,6 +1571,10 @@ rule "aws_cognito_user_pool_invalid_sms_verification_message" {
 }
 
 rule "aws_cognito_user_pool_ui_customization_invalid_client_id" {
+  enabled = true
+}
+
+rule "aws_cognito_user_pool_ui_customization_invalid_css" {
   enabled = true
 }
 
@@ -3606,22 +3590,6 @@ rule "aws_macie2_findings_filter_invalid_action" {
   enabled = true
 }
 
-rule "aws_macie_member_account_association_invalid_member_account_id" {
-  enabled = true
-}
-
-rule "aws_macie_s3_bucket_association_invalid_bucket_name" {
-  enabled = true
-}
-
-rule "aws_macie_s3_bucket_association_invalid_member_account_id" {
-  enabled = true
-}
-
-rule "aws_macie_s3_bucket_association_invalid_prefix" {
-  enabled = true
-}
-
 rule "aws_media_store_container_invalid_name" {
   enabled = true
 }
@@ -3983,14 +3951,6 @@ rule "aws_redshift_parameter_group_invalid_family" {
 }
 
 rule "aws_redshift_parameter_group_invalid_name" {
-  enabled = true
-}
-
-rule "aws_redshift_security_group_invalid_description" {
-  enabled = true
-}
-
-rule "aws_redshift_security_group_invalid_name" {
   enabled = true
 }
 
@@ -4603,10 +4563,6 @@ rule "aws_secretsmanager_secret_invalid_name" {
 }
 
 rule "aws_secretsmanager_secret_invalid_policy" {
-  enabled = true
-}
-
-rule "aws_secretsmanager_secret_invalid_rotation_lambda_arn" {
   enabled = true
 }
 

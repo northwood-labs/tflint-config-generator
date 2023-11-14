@@ -5,7 +5,7 @@
 plugin "azurerm" {
   enabled    = true
   deep_check = true
-  version    = "0.19.0"
+  version    = "0.25.1"
   source     = "github.com/terraform-linters/tflint-ruleset-azurerm"
 }
 
@@ -251,10 +251,6 @@ rule "azurerm_cdn_profile_invalid_sku" {
 }
 
 rule "azurerm_cognitive_account_invalid_name" {
-  enabled = true
-}
-
-rule "azurerm_container_group_invalid_ip_address_type" {
   enabled = true
 }
 
@@ -626,7 +622,27 @@ rule "azurerm_kubernetes_cluster_node_pool_invalid_os_type" {
   enabled = true
 }
 
+rule "azurerm_kusto_cluster_invalid_name" {
+  enabled = true
+}
+
+rule "azurerm_kusto_database_invalid_cluster_name" {
+  enabled = true
+}
+
+rule "azurerm_kusto_database_invalid_name" {
+  enabled = true
+}
+
 rule "azurerm_kusto_eventhub_data_connection_invalid_data_format" {
+  enabled = true
+}
+
+rule "azurerm_kusto_eventhub_data_connection_invalid_database_name" {
+  enabled = true
+}
+
+rule "azurerm_kusto_eventhub_data_connection_invalid_name" {
   enabled = true
 }
 
@@ -671,10 +687,6 @@ rule "azurerm_linux_virtual_machine_scale_set_invalid_eviction_policy" {
 }
 
 rule "azurerm_linux_virtual_machine_scale_set_invalid_priority" {
-  enabled = true
-}
-
-rule "azurerm_linux_virtual_machine_scale_set_invalid_upgrade_mode" {
   enabled = true
 }
 
@@ -806,7 +818,27 @@ rule "azurerm_notification_hub_namespace_invalid_sku_name" {
   enabled = true
 }
 
+rule "azurerm_postgresql_configuration_invalid_name" {
+  enabled = true
+}
+
+rule "azurerm_postgresql_database_invalid_charset" {
+  enabled = true
+}
+
+rule "azurerm_postgresql_database_invalid_collation" {
+  enabled = true
+}
+
+rule "azurerm_postgresql_database_invalid_name" {
+  enabled = true
+}
+
 rule "azurerm_postgresql_firewall_rule_invalid_end_ip_address" {
+  enabled = true
+}
+
+rule "azurerm_postgresql_firewall_rule_invalid_name" {
   enabled = true
 }
 
@@ -958,10 +990,6 @@ rule "azurerm_virtual_machine_scale_set_invalid_priority" {
   enabled = true
 }
 
-rule "azurerm_virtual_machine_scale_set_invalid_upgrade_policy_mode" {
-  enabled = true
-}
-
 rule "azurerm_virtual_network_gateway_connection_invalid_connection_protocol" {
   enabled = true
 }
@@ -1003,10 +1031,6 @@ rule "azurerm_windows_virtual_machine_scale_set_invalid_eviction_policy" {
 }
 
 rule "azurerm_windows_virtual_machine_scale_set_invalid_priority" {
-  enabled = true
-}
-
-rule "azurerm_windows_virtual_machine_scale_set_invalid_upgrade_mode" {
   enabled = true
 }
 

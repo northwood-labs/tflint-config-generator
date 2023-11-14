@@ -5,9 +5,9 @@ current_dir := $(dir $(mkfile_path))
 # Global stuff.
 
 GO=$(shell which go)
-TFLINT_AWS_TAG=0.20.0
-TFLINT_GCP_TAG=0.21.0
-TFLINT_AZURE_TAG=0.19.0
+TFLINT_AWS_TAG=0.27.0
+TFLINT_GCP_TAG=0.25.0
+TFLINT_AZURE_TAG=0.25.1
 
 GO=$(shell which go)
 BREW_PREFIX=$(shell brew --prefix)
@@ -122,7 +122,7 @@ clean: clean-files
 tidy:
 	@ $(ECHO) " "
 	@ $(ECHO) "=====> Running go mod tidy..."
-	$(GO) mod tidy -go=1.17 -v
+	$(GO) mod tidy -go=1.21 -v
 	$(GO) mod download -x
 	$(GO) get -v ./...
 
@@ -133,7 +133,7 @@ base:
 	@ $(ECHO) "=====> Generating base configuration..."
 	touch .tflint.hcl && rm -f .tflint.hcl
 	$(GO) run main.go
-	mv -vf base.tflint.hcl .tflint.hcl
+	mv -vf base.tflint.hcl ./dist/base.tflint.hcl
 
 #-------------------------------------------------------------------------------
 # AWS
@@ -166,7 +166,7 @@ _aws-fetch-sdk:
 _aws-copy-gen:
 	cp -fv _aws.tflint.hcl.tmp /tmp/tflint-ruleset-aws/docs/rules/README.md.tmpl
 	cd /tmp/tflint-ruleset-aws/rules/models/ && go run -tags generators ./generator
-	cp -fv /tmp/tflint-ruleset-aws/docs/rules/README.md ./.tflint.hcl
+	cp -fv /tmp/tflint-ruleset-aws/docs/rules/README.md ./dist/aws.tflint.hcl
 
 #-------------------------------------------------------------------------------
 # GCP
@@ -190,7 +190,7 @@ _gcp-gen-def:
 # Private
 .PHONY: _gcp-copy-gen
 _gcp-copy-gen:
-	cp -fv _gcp.tflint.hcl.tmp ./.tflint.hcl
+	cp -fv _gcp.tflint.hcl.tmp ./dist/gcp.tflint.hcl
 
 #-------------------------------------------------------------------------------
 # Azure
@@ -223,31 +223,11 @@ _azure-fetch-sdk:
 _azure-copy-gen:
 	cp -fv _azure.tflint.hcl.tmp /tmp/tflint-ruleset-azure/tools/apispec-rule-gen/doc_README.md.tmpl
 	cd /tmp/tflint-ruleset-azure/tools/ && go run ./apispec-rule-gen
-	cp -fv /tmp/tflint-ruleset-azure/docs/README.md ./.tflint.hcl
+	cp -fv /tmp/tflint-ruleset-azure/docs/README.md ./dist/azure.tflint.hcl
 
 #-------------------------------------------------------------------------------
 # Dist
 
 .PHONY: dist
 ## dist: [build]* Generates all flavors of `.tflint.hcl` into the dist/ directory.
-dist: _dist-prep _dist-base _dist-aws _dist-gcp _dist-azure clean-files
-
-.PHONY: _dist-prep
-_dist-prep:
-	mkdir -p ./dist && rm -Rf ./dist/*.hcl || return
-
-.PHONY: _dist-base
-_dist-base: base
-	cp -vf .tflint.hcl dist/base.tflint.hcl
-
-.PHONY: _dist-aws
-_dist-aws: aws
-	cp -vf .tflint.hcl dist/aws.tflint.hcl
-
-.PHONY: _dist-gcp
-_dist-gcp: gcp
-	cp -vf .tflint.hcl dist/gcp.tflint.hcl
-
-.PHONY: _dist-azure
-_dist-azure: azure
-	cp -vf .tflint.hcl dist/azure.tflint.hcl
+dist: base aws gcp azure clean-files

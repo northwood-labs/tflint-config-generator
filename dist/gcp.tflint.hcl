@@ -5,7 +5,7 @@
 plugin "gcp" {
   enabled    = true
   deep_check = true
-  version    = "0.21.0"
+  version    = "0.25.0"
   source     = "github.com/terraform-linters/tflint-ruleset-google"
 }
 
